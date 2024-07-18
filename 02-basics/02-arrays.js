@@ -23,7 +23,8 @@ console.log(new_aaray.flat(Infinity));
 
 console.log(Array.isArray("Hitesh"))
 console.log(Array.from("Hitesh"))
-console.log(Array.from({name: "hitesh"})) // interesting
+console.log(Array.from({name: "hitesh"})) // **********************interesting*************************
+/* we cannot directly convert an object into array  */ 
 
 let score1 = 100
 let score2 = 200
