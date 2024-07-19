@@ -41,26 +41,30 @@ users[1].email
 
 // console.log(tinderUser.hasOwnProperty('isLoggedIn'));
 
-
+//***********************destructuring of objects************************** */
 const course = {
   coursename: "js in hindi",
   price: "999",
   courseInstructor: "hitesh"
 }
+//why to do destructuring?=>when we want to access a object property multiple times we cannot write course.propertyname every time thus we use destructuring and  assign it to a variable to reuse it in a easier way
 
 // course.courseInstructor
-
+//this how it is done
 const {courseInstructor: instructor} = course
 
 // console.log(courseInstructor);
+//now we just use instructor every time we want to access the property
 console.log(instructor);
 
+//whenevr we want to send data to a api or get a data from api it is always in the form of json
+//json format
 // {
 //     "name": "hitesh",
 //     "coursename": "js in hindi",
 //     "price": "free"
 // }
-
+//API=>it does our work in background 
 [
   {},
   {},
