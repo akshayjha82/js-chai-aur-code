@@ -1,0 +1,11 @@
+1)there are two components necessary for executing a js file :execution context and call stack
+2)when a js file is created it creates a "global execution context" which is which is given to "this" variable.Differnt js environment has diffrent execution context like in case we are executing js code in browser then window global excutin context is created in case of node the whole code  is global execution
+context same is the case for dino and other js platforms
+3)js is a single thread execution language
+4)there are 2 execution context a)Global execution context b)Functional Execution context there is a third as well but it is part of global only it is "Eval Execution context".It is introduced in mongoose
+5)when a global execution context then the next step is "memory creation phase" after that is the "execution phase"
+6)in memory  phase only the varaibles are declared These values only hold "undefined" and not acutal data, it holds actual data in execution phase
+7)in execution phase the actual data is assigned to the variables and the whole code is executed
+8)whenver we create a function js platform creates function's own execution environment in which again there is a memory and execution phase which then executes in the same pattern as the global code.
+
+9)call stack is required for holding the variables as well as global context
