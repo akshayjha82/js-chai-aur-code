@@ -9,3 +9,5 @@ context same is the case for dino and other js platforms
 8)whenver we create a function js platform creates function's own execution environment in which again there is a memory and execution phase which then executes in the same pattern as the global code.
 
 9)call stack is required for holding the variables as well as global context
+
+For Call Stack refer to https://youtu.be/ByhtOgF6uYM?si=yVuALSp4HtrIBu4w
