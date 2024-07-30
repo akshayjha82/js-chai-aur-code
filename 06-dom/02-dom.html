@@ -1,0 +1,44 @@
+<!-- how-to-create-a-element-via-dom -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>how-to-create-a-element-via-dom</title>
+ </head>
+ <body>
+
+ </body>
+ <script>
+  // Create a new elements
+  
+    let divElemnt=document.createElement('div')
+    // console.log(divElemnt);
+    divElemnt.className='first-section'
+    divElemnt.id='myId'
+    // divElemnt.innerText='Jai Mata di'
+    divElemnt.setAttribute('title','Hello Akshay')
+    divElemnt.style.color='white'
+    divElemnt.style.padding='12px'
+    divElemnt.style.backgroundColor='orange'
+    // divElemnt.innerHTML='<h1>Hello World</h1>'
+    const child=document.createTextNode("Child and props")
+    divElemnt.appendChild(child)
+    console.log(divElemnt)
+    document.body.style.backgroundColor='black'
+    
+
+
+    let childnode=document.createElement('h1')
+    console.log(childnode);
+    childnode.setAttribute('id','myUl')
+    childnode.className='ChildNode'
+    childnode.innerHTML='<h2>I am child</h2>'
+    childnode.style.color='white'
+    
+    divElemnt.append(childnode)
+
+    document.body.appendChild(divElemnt)
+
+ </script>
+ </html>

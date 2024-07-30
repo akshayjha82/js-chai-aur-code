@@ -1,0 +1,53 @@
+<!-- how to add,edit,remove elements  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>chai aur code | dom</title>
+</head>
+<body>
+  <ul>
+    <li>Javascript</li>
+  </ul>
+</body>
+<script>
+  //how to add element in other element 
+  function addElement(langName) {
+    let li=document.createElement('li');
+    li.innerText=`${langName}`;
+    document.querySelector('ul').appendChild(li)
+  }
+  addElement('Python')
+  addElement('C++')
+  //this approach is not a optimized approach as it has to traverse whole dom tree to append teh child
+  //the more optimized approach can be done by the following
+  function addElementOptimized(langName) {
+    let li=document.createElement('li');
+    li.appendChild(document.createTextNode(langName))
+    document.querySelector('ul').appendChild(li)
+  }
+  addElementOptimized('Typescript')
+
+  //Edit the elements
+  function editElement(langName, index) {
+    let li=document.createElement('li');
+    let newli=document.querySelector(`li:nth-child(${index}`);
+    li.innerText=langName /*or newli.innerText*/
+    newli.replaceWith(li)
+
+  }
+  editElement('Java',2)
+
+  //with outerHTML
+  
+  document.querySelector("li:nth-child(2)").outerHTML='<li>Ram</li>'
+
+  //remove elemnt
+  document.querySelector("li:nth-child(2)").remove()
+  
+
+
+
+</script>
+</html>

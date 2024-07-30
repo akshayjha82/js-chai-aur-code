@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Dom new Element Creation</title>
+</head>
+<body>
+      <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day" id="24">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+      </div>
+</body>
+<script>
+  // ***********************************How to accses children from parents**********************************
+  const parentElemnt=document.querySelector(".parent")
+  // console.log(parentElemnt.children[1]);
+  // const childs= Array.from(parentElemnt.children)
+  // console.log(childs);
+  // childs[2].style.color='orange'
+  parentElemnt.children[3].style.backgroundColor='black'
+  parentElemnt.children[3].style.color='white'
+  // console.log(parentElemnt.children.item(3))
+  // console.log(parentElemnt.children[1].innerHTML);
+  for (let i = 0; i < parentElemnt.children.length; i++) {
+    const element = parentElemnt.children[i];
+    // console.log(element.innerHTML)
+  }
+  // console.log(parentElemnt.childNodes)
+  // console.log(parentElemnt.children[1].nextElementSibling);
+
+  // how to accsess parent from children
+  const childElement = document.querySelector(".day");
+  // console.log(childElement.parentElement);
+  // console.log(childElement.parentElement.nextElementSibling);
+  // console.log(childElement.parentNode.innerText);
+  console.log(childElement.nextElementSibling);
+
+</script>
+</html>
