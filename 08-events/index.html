@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+  <h2>Amazing image</h2>
+  <div >
+      <ul id="images">
+          <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+          <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+          <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+          <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+          <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+          <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+      </ul>
+ </div>
+</body>
+<script>
+  //earlier we used onclick() event mostly when we wanted certain events to run but now we use addEventListener() which has more props than click events.Like it has enter ,hover and many more
+
+  /*
+  document.getElementById('owl').onclick=(e)=>{
+    alert('Hello akshay');
+  }
+  */
+
+// attachEvent()
+// attachEvent()
+// jQuery - on
+
+// type, timestamp, defaultPrevented
+// target, toElement, srcElement, currentTarget,
+// clientX, clientY, screenX, screenY
+// altkey, ctrlkey, shiftkey, keyCode
+
+  //we can also use addEventListener() method to add event listeners to elements
+
+  // document.getElementById('owl').addEventListener('click',(e)=>{
+    // console.log("hsvfjhbsd");
+    // console.log(e)
+  //   console.log(e.target)
+    // alert(`${e.timeStamp}`)
+    // alert(`${e.clientX}`)
+  // })
+
+  //Event propogation
+  // Event Propagation determines in which order the elements receive the event.There are two types of propogation =>event bubbling and event capturing
+  //Event Bubbling
+  // When an event happens on a component, it first runs the event handler on it, then on its parent component, then all the way up on other ancestors’ components. By default, all event handles through this order from center component event to outermost component event.
+  // ********************************
+  /*
+  document.getElementById('images').addEventListener('click',(e)=>{
+    console.log('Clicked on parent of all images')
+  },false)
+  document.getElementById('owl').addEventListener('click',(e)=>{
+    console.log('Clicked on owl image')
+  },false)
+  */
+
+/*
+Output:
+index.html:86 Clicked on owl image
+index.html:83 Clicked on parent of all images
+*/
+
+// ******************************************Event Capturing
+// It first captures the event of parent element than that of the current element
+
+
+// document.getElementById('images').addEventListener('click',(e)=>{
+//     console.log('Clicked on parent of all images')
+//   },true);
+//   document.getElementById('river').addEventListener('click',(e)=>{
+//     console.log('Clicked on river image')
+//   },true);
+
+// Output
+// index.html:83 Clicked on parent of all images
+// Clicked on river image
+
+//Now if we want that when we clicked on goole link it should not take us at google page and the event of it's parent should also not execute then  that can be done by 2 function those are preventDefault() and   stopPropagation()
+
+// document.getElementById('google').addEventListener('click',(e)=>{
+//   e.preventDefault()
+//   e.stopPropagation()
+//   console.log('Stopped propogation')
+// },false)
+
+//Now we want that as we click pon the images it should be removed from the page
+document.getElementById('images').addEventListener('click',(e)=>{
+  // const removeIt=e.target
+  // removeIt.remove()  //in this every thing is removed including googlr link which is not an image we want only the image to be removed
+
+  console.log(e.target.tagName);
+  if(e.target.tagName === 'IMG'){
+    removeIT=e.target
+    removeIT.remove()
+  }
+  
+},false)
+    
+    //removeIt.parentNode.removeChild(removeIt)
+
+</script>
+</html>
