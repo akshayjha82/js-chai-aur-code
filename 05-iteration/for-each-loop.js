@@ -7,7 +7,7 @@ arr.forEach(function (key){
 })
 
 function greetings(key){
-  // console.log(`Welcome to ${key}`);
+  console.log(`Welcome to ${key}`);
 }
 
 let myArr=['Jammu','Assam','Mumbai','Delhi']
@@ -37,5 +37,5 @@ let ObjInArr=[
 ]
 
 ObjInArr.forEach(function(key){
-  console.log(key.name);
+  // console.log(key.name);
 })

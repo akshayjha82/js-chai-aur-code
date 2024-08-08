@@ -170,3 +170,59 @@ function newGame() {
 }
 
 ```
+
+## Project 5-Changing Background Colors
+
+```Javascript
+let interval;
+// let currentIndex = 0;
+
+// const myColors = [
+//   'white',
+//   'gray',
+//   'pink',
+//   'yellow',
+//   'red',
+//   'green',
+//   'blue',
+//   'black',
+//   'maroon',
+// ];
+
+// document.querySelector('#start').addEventListener('click', () => {
+//   interval = setInterval(() => {
+//     document.body.style.backgroundColor = myColors[currentIndex];
+//     currentIndex = (currentIndex + 1) % myColors.length; // Loop back to the first color after reaching the end
+//   }, 1000);
+// });
+
+// document.querySelector('#stop').addEventListener('click', () => {
+//   clearInterval(interval);
+// });
+
+// we can use this code or the other one
+
+const randomcolor = function () {
+  let hex = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += hex[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
+// console.log(randomcolor());
+
+const changingColor = function () {
+  interval = setInterval(() => {
+    document.body.style.backgroundColor = randomcolor();
+  }, 1000);
+};
+
+const stoppingcolor = function () {
+  clearInterval(interval);
+};
+
+document.querySelector('#start').addEventListener('click', changingColor);
+document.querySelector('#stop').addEventListener('click', stoppingcolor);
+```
