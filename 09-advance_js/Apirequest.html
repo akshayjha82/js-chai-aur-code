@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apirequest</title>
+  <style>
+    .card {
+      /* Add shadows to create the "card" effect */
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      border-radius: 5px;
+      width: 20%;
+      height: 10%;
+    }
+
+    /* On mouse-over, add a deeper shadow */
+    .card:hover {
+      box-shadow: 0 8px 16px 0 #ec0707ea;
+    }
+
+    /* Add some padding inside the card container */
+    .container {
+      padding: 2px 16px;
+    }
+
+    img {
+      border-radius: 5px 5px 0 0;
+      width: 10%;
+      height: 10%;
+    }
+  </style>
+</head>
+
+<button id="cards">Info On me</button>
+
+
+<body>
+</body>
+<script>
+  //Our aim is to understand how an api request is send and then how we get data from it . Nowadays  we use fetch api but earlier we used  XMLHttpRequest to request api to get data 
+  /* ****************************************************************
+Steps 
+1) we create an object of api 
+2)we call open method to start the api
+3)rest all the steps are according to the below text
+Value - State - Description
+0 - UNSENT - Client has been created. open() not   called yet.
+1 - OPENED - open() has been called.
+2 -	HEADERS_RECEIVED - send() has been called, and headers and status are available.
+3 -	LOADING -	Downloading; responseText holds partial data.
+4 - DONE - The operation is complete.
+  */
+
+  const xhr = new XMLHttpRequest()
+  const request_url = 'https://api.github.com/users/hiteshchoudhary'
+  xhr.open('GET', request_url)
+  xhr.onreadystatechange = function () {
+    // console.log(xhr.readyState)
+    if (xhr.readyState === 4) {
+      const data = JSON.parse(this.responseText)
+      console.log(data)
+    }
+  }
+  // console.log(xhr.readyState);
+  xhr.send()
+  const card = document.getElementById('cards')
+  card.addEventListener('click', (e) => {
+    // console.log(e.target)
+    e.innerHTML = `<h2>Card</h2>
+  <div class="card">
+  <img src='' alt="Avatar" style="width:100%">
+  <div class="container">
+    <h4><b></b></h4>
+    <p></p>
+  </div>
+</div>`
+
+  })
+
+</script>
+
+</html>
