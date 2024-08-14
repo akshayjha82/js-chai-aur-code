@@ -5,18 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apirequest</title>
-  <style>
-    .card {
-      /* Add shadows to create the "card" effect */
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      transition: 0.3s;
-      border-radius: 5px;
-      width: 20%;
-      height: 10%;
-    }
-
+  <!-- <style>
     /* On mouse-over, add a deeper shadow */
-    .card:hover {
+    .cards:hover {
       box-shadow: 0 8px 16px 0 #ec0707ea;
     }
 
@@ -30,12 +21,9 @@
       width: 10%;
       height: 10%;
     }
-  </style>
+  </style> -->
 </head>
-
-<button id="cards">Info On me</button>
-
-
+  <button id="info">Info on me</button>
 <body>
 </body>
 <script>
@@ -52,32 +40,66 @@ Value - State - Description
 3 -	LOADING -	Downloading; responseText holds partial data.
 4 - DONE - The operation is complete.
   */
-
+  let data;
   const xhr = new XMLHttpRequest()
   const request_url = 'https://api.github.com/users/hiteshchoudhary'
   xhr.open('GET', request_url)
   xhr.onreadystatechange = function () {
     // console.log(xhr.readyState)
     if (xhr.readyState === 4) {
-      const data = JSON.parse(this.responseText)
+      data = JSON.parse(this.responseText)
       console.log(data)
     }
   }
   // console.log(xhr.readyState);
   xhr.send()
-  const card = document.getElementById('cards')
-  card.addEventListener('click', (e) => {
-    // console.log(e.target)
-    e.innerHTML = `<h2>Card</h2>
-  <div class="card">
-  <img src='' alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b></b></h4>
-    <p></p>
-  </div>
-</div>`
+  document.getElementById('info').addEventListener('click', function() {
+    this.style.display = 'none';  // Hide the button
 
-  })
+    // Create the card element
+    const card = document.createElement('div');
+    card.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2)';
+    card.style.transition = '0.3s';
+    card.style.borderRadius = '5px';
+    card.style.width = '20%';
+    card.style.marginTop = '20px';
+    
+    // Add hover effect to the card
+    card.addEventListener('mouseover', function() {
+      card.style.boxShadow = '0 8px 16px 0 #ec0707ea';
+    });
+    card.addEventListener('mouseout', function() {
+      card.style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2)';
+    });
+
+    // Create and style the image element
+    const img = document.createElement('img');
+    img.src = `${data.avatar_url}`; // Replace with your image path
+    img.alt = 'Avatar';
+    img.style.borderRadius = '5px 5px 0 0';
+    img.style.width = '100%';
+
+    // Create and style the container for text
+    const container = document.createElement('div');
+    container.style.padding = '2px 16px';
+
+    // Add text elements to the container
+    const name = document.createElement('h4');
+    name.innerHTML = `<b>${data.name}</b>`;
+    const profession = document.createElement('p');
+    profession.textContent = `${data.bio}`;
+
+    // Append the text elements to the container
+    container.appendChild(name);
+    container.appendChild(profession);
+
+    // Append the image and container to the card
+    card.appendChild(img);
+    card.appendChild(container);
+
+    // Append the card to the body
+    document.body.appendChild(card);
+  });
 
 </script>
 
