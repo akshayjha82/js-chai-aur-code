@@ -19,3 +19,5 @@ Encapsulation(concept of wrapping the data)
 polymorphism(concept of using the properties diffrently multiple times)
 inheritance(concept of inheriting properties and methods)
 
+### Everything in js is a object######################
+
