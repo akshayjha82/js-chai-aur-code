@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React</title>
+</head>
+<body>
+  <button>CLICK ME</button>
+</body>
+<script>
+  class React {
+    constructor(username){
+      this.username = username;
+      this.server = "http://localhost:3000";
+
+      document.querySelector('button').addEventListener("click",this.handleClick.bind(this))
+    }
+
+    handleClick(){
+      console.log("Clicked on button")
+      console.log(this.server)
+    }
+}
+
+    const user = new React("akshay")
+</script>
+</html>
